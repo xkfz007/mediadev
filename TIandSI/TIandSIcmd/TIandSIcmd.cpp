@@ -313,15 +313,14 @@ int TIandSI(const char* strPath,int width,int height,int pixfmt)
 
 //usage
 void tisi_usage(){
-	printf("---------------------帮助------------------------\n");
-	printf("TISI\n\n本程序可以：\n");
-	printf("计算输入YUV文件的TI、SI值，并输出至csv文件\n\n");
-	printf("输入选项如下\n");
-	printf("-i\t输入YUV文件的路径（必填）\n");
-	printf("-x\t输入YUV文件的宽度（必填）\n");
-	printf("-y\t输入YUV文件的高度（必填）\n");
-	printf("-f\t输入YUV文件的像素格式（必填，420或422或444或400）\n");
-	printf("-h\t打开本帮助\n");
+	printf("---------------------help------------------------\n");
+	printf("TISI:calculate the TI and SI values for YUV\n");
+	printf("options\n");
+	printf("-i <string> the input file name\n");
+	printf("-x <int> width\n");
+	printf("-y <int> height\n");
+	printf("-f <string> format:420,422,444,400\n");
+	printf("-h help\n");
 	printf("-------------------------------------------------\n");
 }
 
@@ -329,24 +328,17 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	_CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 	int ret;
-	CString filename,width_s,height_s,pixfmt_s; 
-	int width,height,pixfmt;
+	CString filename="",width_s,height_s,pixfmt_s; 
+	int width=-1,height=-1,pixfmt=420;
 
-	printf("-----------------------------------------------------\n");
-	printf("TISI\n");
-	printf("2014 王彩虹，雷霄骅，张晖 中国传媒大学/数字电视技术\n");
-	printf("-----------------------------------------------------\n");
 
 	extern _TCHAR *optarg;
 	int opt;
 	if(argc==1){
-		printf("请设定参数！\n输入 -h 以获得详细帮助信息\n");
+		printf("parameters are not enough!\n");
 		tisi_usage();
 		return FALSE;
 	}
-	//分析命令行参数，注意用法。
-	//选项都是一个字母，后面有冒号的代表该选项还有相关参数
-	//一直循环直到获取所有的opt
 	while ((opt =getopt(argc, argv,_T("i:x:y:f:h"))) != -1)
     {
       switch (opt)
@@ -354,28 +346,35 @@ int _tmain(int argc, _TCHAR* argv[])
 		case 'h':
 		  tisi_usage();
 		  return FALSE;
-		case 'i':{
+		case 'i':
 			filename.Format("%s",optarg);
-			break;}
-		case 'x':{
+			break;
+		case 'x':
 			width_s.Format("%s",optarg);
-			break;}
-		case 'y':{
+            width=atoi(width_s);
+			break;
+		case 'y':
 			height_s.Format("%s",optarg);
-			break;}
-		case 'f':{
+            height=atoi(height_s);
+			break;
+		case 'f':
 			pixfmt_s.Format("%s",optarg);
-			break;}
+            pixfmt=atoi(pixfmt_s);
+			break;
 		default:
-		  printf("未知命令: %c\n", opt);
+		  printf("unkown: %c\n", opt);
 		  tisi_usage();
 		  return FALSE;
 		}
     }
-//-------------------------
-	width=atoi(width_s);
-	height=atoi(height_s);
-	pixfmt=atoi(pixfmt_s);
+    if(filename==""){
+        fprintf(stderr,"please input the filename\n");
+        return -1;
+    }
+    if(width==-1||height==-1){
+        fprintf(stderr,"please input width and height\n");
+        return -1;
+    }
 
 	ret=TIandSI(filename,width,height,pixfmt);
 	if(!ret)

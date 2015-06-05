@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TIandSIpro", "TIandSIpro\TI
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TIandSIprocmd", "TIandSIprocmd\TIandSIprocmd.vcxproj", "{58115D57-5679-4F24-929F-99E9E680D003}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tisi", "tisi\tisi.vcxproj", "{B83B0296-EE21-4D36-9C88-21BABD14084F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +33,10 @@ Global
 		{58115D57-5679-4F24-929F-99E9E680D003}.Debug|Win32.Build.0 = Debug|Win32
 		{58115D57-5679-4F24-929F-99E9E680D003}.Release|Win32.ActiveCfg = Release|Win32
 		{58115D57-5679-4F24-929F-99E9E680D003}.Release|Win32.Build.0 = Release|Win32
+		{B83B0296-EE21-4D36-9C88-21BABD14084F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B83B0296-EE21-4D36-9C88-21BABD14084F}.Debug|Win32.Build.0 = Debug|Win32
+		{B83B0296-EE21-4D36-9C88-21BABD14084F}.Release|Win32.ActiveCfg = Release|Win32
+		{B83B0296-EE21-4D36-9C88-21BABD14084F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
