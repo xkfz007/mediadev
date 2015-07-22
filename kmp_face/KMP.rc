@@ -1,0 +1,379 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\KMP.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\kplay1.ico"
+IDI_KICON1              ICON    DISCARDABLE     "res\\kplay1.ico"
+IDI_KICON2              ICON    DISCARDABLE     "res\\kplay2.ico"
+IDI_KICON90             ICON    DISCARDABLE     "res\\kicon10.ico"
+IDI_KICON91             ICON    DISCARDABLE     "res\\kicon11.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_KCHANDLG DIALOGEX 0, 0, 270, 95
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "频道选择--"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "1 频道(192.168.255.255  5000)",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,37,21,133,9,
+                    WS_EX_TRANSPARENT
+    CONTROL         "2 频道(192.168.0.1 5000)",IDC_RADIO2,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,37,34,133,9,
+                    WS_EX_TRANSPARENT
+    CONTROL         "3 频道(192.168.0.1 5000)",IDC_RADIO3,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,37,47,133,9,
+                    WS_EX_TRANSPARENT
+    CONTROL         "4 频道(192.168.0.1 5000)",IDC_RADIO4,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,37,60,133,9,
+                    WS_EX_TRANSPARENT
+    CONTROL         "5 频道(0.0.0.0 5000)",IDC_RADIO5,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,37,73,133,9,
+                    WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "确定",IDOK,196,15,56,15
+    PUSHBUTTON      "取消",IDCANCEL,196,41,56,15
+    GROUPBOX        "请选择频道",IDC_STATIC,19,7,158,82,0,WS_EX_TRANSPARENT
+END
+
+IDD_KIPDLG DIALOG DISCARDABLE  0, 0, 270, 69
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "IP地址设置-- "
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT20,46,30,108,13,ES_AUTOHSCROLL | NOT WS_BORDER
+    PUSHBUTTON      "确定",IDOK,196,14,53,15
+    PUSHBUTTON      "取消",IDCANCEL,196,37,53,15
+    GROUPBOX        "本地IP地址",IDC_STATIC,21,6,153,52
+END
+
+IDD_KMIPDLG DIALOGEX 0, 0, 270, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "频道设置/选择 -- "
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    LTEXT           " ",IDC_STATIC101,1,13,66,14,SS_NOTIFY | SS_CENTERIMAGE | 
+                    NOT WS_GROUP,WS_EX_TRANSPARENT
+    LTEXT           "",IDC_STATIC102,1,29,66,14,SS_NOTIFY | SS_CENTERIMAGE | 
+                    NOT WS_GROUP,WS_EX_TRANSPARENT
+    LTEXT           "",IDC_STATIC103,1,45,66,14,SS_NOTIFY | SS_CENTERIMAGE | 
+                    NOT WS_GROUP,WS_EX_TRANSPARENT
+    LTEXT           "",IDC_STATIC104,1,61,66,14,SS_NOTIFY | SS_CENTERIMAGE | 
+                    NOT WS_GROUP,WS_EX_TRANSPARENT
+    LTEXT           "",IDC_STATIC105,1,78,66,14,SS_NOTIFY | SS_CENTERIMAGE | 
+                    NOT WS_GROUP,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT1,70,12,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT2,170,11,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT3,70,28,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT4,170,28,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT5,70,44,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT6,170,45,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT7,70,60,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT8,170,62,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT9,70,77,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+    EDITTEXT        IDC_EDIT10,170,81,96,14,ES_AUTOHSCROLL | NOT WS_BORDER
+END
+
+IDD_KMPDLG DIALOGEX 0, 0, 320, 69
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "美柯放影机"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,16,320,1
+    PUSHBUTTON      "Button1",IDC_BUTTON11,2,1,40,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Button1",IDC_BUTTON12,42,1,40,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Button1",IDC_BUTTON13,82,1,40,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Button1",IDC_BUTTON14,122,1,40,14,NOT WS_VISIBLE
+    PUSHBUTTON      "Button1",IDC_BUTTON15,162,1,40,14,NOT WS_VISIBLE,
+                    WS_EX_TRANSPARENT
+    PUSHBUTTON      "Button6",IDC_BUTTON21,6,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON22,34,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON23,62,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON24,90,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON25,118,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON26,146,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON27,174,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON28,202,18,15,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Button6",IDC_BUTTON29,230,18,15,15,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,139,38,1,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,251,38,1,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,139,57,1,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,251,56,1,12
+    PUSHBUTTON      "数据传输速率:1441kbps",IDC_BUTTON42,142,36,107,15,NOT 
+                    WS_VISIBLE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,34,320,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,0,52,320,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,139,20,1,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT | NOT WS_VISIBLE,
+                    195,20,1,12
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,55,20,1,12
+    PUSHBUTTON      "包数 11172",IDC_BUTTON43,254,36,62,15,NOT WS_VISIBLE
+    PUSHBUTTON      "准备好.....",IDC_BUTTON44,2,54,135,15,NOT WS_VISIBLE
+    PUSHBUTTON      "欢迎使用美柯放影机",IDC_BUTTON46,142,54,107,15,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "16:40:30",IDC_BUTTON45,254,54,64,15,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,223,20,1,12
+    PUSHBUTTON      "Button6",IDC_BUTTON30,258,18,15,15,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT | NOT WS_VISIBLE,
+                    251,19,1,12
+    CONTROL         "",IDC_STATIC200,"Static",SS_ETCHEDHORZ | NOT WS_VISIBLE,
+                    9,47,125,1
+    PUSHBUTTON      "时长    ",IDC_BUTTON41,2,36,135,15,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC201,"Static",SS_ETCHEDVERT | NOT WS_VISIBLE,
+                    9,42,1,9
+END
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 299, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于美柯放影机--"
+FONT 9, "宋体"
+BEGIN
+    LTEXT           "美柯放影机 0.1 版",IDC_STATIC,14,13,153,8,SS_NOPREFIX
+    LTEXT           "版权所有(C) tinck 2000-2005 ",IDC_STATIC,14,26,119,8
+    DEFPUSHBUTTON   "确定",IDOK,224,12,50,15,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,14,45,268,1
+    LTEXT           "说明:",IDC_STATIC,14,53,65,10
+    LTEXT           "1:本软件支持标准的解码器源代码由作者编写。",IDC_STATIC,
+                    25,68,252,9
+    LTEXT           "2:本软件不支持的媒体文件，或者编码标准没公开，或者作者没找到标准，",
+                    IDC_STATIC,25,82,266,9
+    LTEXT           "做不了解码器，暂不提供支持。",IDC_STATIC,33,96,119,9
+    LTEXT           "4:本软件为免费软件，自由使用。",IDC_STATIC,25,123,128,
+                    10,NOT WS_VISIBLE
+    LTEXT           "3:联系作者  tslking@163.net",IDC_STATIC,25,110,113,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "美柯技术有限公司  tslking@tom.com  mcodec.cnblogs.com\0"
+            VALUE "FileDescription", "\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "KMP\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2001-2010 美柯技术有限公司\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "KMP.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Tinck KMP Player\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 142
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP0             BITMAP  DISCARDABLE     "bit0.bmp"
+IDB_BITMAP1             BITMAP  DISCARDABLE     "bmp1.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "bmp2.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "bmp3.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_KMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "文件"
+    BEGIN
+        MENUITEM "播放 网络UDP数据包",          ID_KDLGCHAN
+        MENUITEM "播放 本地媒体文件",           ID_KDLGFILE
+        MENUITEM SEPARATOR
+        MENUITEM "频道 设置/选择",              ID_KMIP
+        MENUITEM "设置 本地IP",                 ID_KIP
+        MENUITEM SEPARATOR
+        MENUITEM "换皮肤",                      ID_KSKIN
+        MENUITEM SEPARATOR
+        MENUITEM "退出",                        ID_KEXIT
+    END
+    POPUP "控制"
+    BEGIN
+        MENUITEM "播放",                        ID_KPLAY
+        MENUITEM "暂停",                        ID_KPAUSE
+        MENUITEM "停止",                        ID_KSTOP
+        MENUITEM SEPARATOR
+        MENUITEM "快进",                        ID_KFORWARD
+        MENUITEM "快退",                        ID_KBACKWARD
+        MENUITEM SEPARATOR
+        MENUITEM "循环",                        ID_KLOOP
+    END
+    POPUP "视频"
+    BEGIN
+        MENUITEM "单色/彩色",                   ID_KCOLOR
+        MENUITEM SEPARATOR
+        MENUITEM "50%",                         ID_KHALFSCREEN
+        MENUITEM "100%",                        ID_KSCREEN
+        MENUITEM "200%",                        ID_KDOUBLESCREEN
+        MENUITEM "全屏",                        ID_KFULLSCREEN
+    END
+    POPUP "音频"
+    BEGIN
+        MENUITEM "加大",                        ID_KADDVOC
+        MENUITEM "减小",                        ID_KDELVOC
+        MENUITEM SEPARATOR
+        MENUITEM "左声道",                      ID_KLEFTSOUND
+        MENUITEM "右声道",                      ID_KRIGHTSOUND
+        MENUITEM "立体声",                      ID_KSTERO
+    END
+    POPUP "帮助"
+    BEGIN
+        MENUITEM "支持标准",                    ID_KISOITU
+        MENUITEM "关于",                        ID_KABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 KMP(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\KMP.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

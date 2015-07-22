@@ -1,0 +1,126 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by KMP.rc
+//
+#define IDM_ABOUTBOX                    0x0010
+#define IDD_ABOUTBOX                    100
+#define IDS_ABOUTBOX                    101
+#define IDD_KMIPDLG                     103
+#define IDD_KMPDLG                      104
+#define IDD_KISODLG                     105
+#define IDD_KIPDLG                      106
+#define IDD_KCHANDLG                    107
+#define IDD_KFILEDLG                    108
+#define IDR_MAINFRAME                   128
+#define IDR_KMENU                       129
+#define IDB_BITMAP4                     134
+#define IDB_BITMAP0                     140
+#define IDB_BITMAP1                     141
+#define IDB_BITMAP2                     142
+#define IDB_BITMAP3                     143
+#define IDI_KICON1                      151
+#define IDI_KICON2                      152
+#define IDI_KICON90                     153
+#define IDI_KICON91                     154
+#define IDC_EDIT30                      1000
+#define IDC_EDIT31                      1001
+#define IDC_RADIO1                      1003
+#define IDC_RADIO2                      1004
+#define IDC_EDIT32                      1004
+#define IDC_RADIO3                      1005
+#define IDC_RADIO4                      1006
+#define IDC_RADIO5                      1007
+#define IDC_STATIC101                   1008
+#define IDC_STATIC102                   1009
+#define IDC_STATIC103                   1010
+#define IDC_STATIC104                   1011
+#define IDC_STATIC105                   1012
+#define IDC_BUTTON1                     1013
+#define IDC_BUTTON2                     1014
+#define IDC_BUTTON3                     1015
+#define IDC_BUTTON4                     1016
+#define IDC_BUTTON5                     1017
+#define IDC_BUTTON6                     1018
+#define IDC_BUTTON11                    1020
+#define IDC_BUTTON12                    1021
+#define IDC_BUTTON13                    1022
+#define IDC_BUTTON14                    1023
+#define IDC_BUTTON15                    1024
+#define IDC_BUTTON21                    1025
+#define IDC_BUTTON22                    1026
+#define IDC_BUTTON23                    1027
+#define IDC_BUTTON24                    1028
+#define IDC_BUTTON25                    1029
+#define IDC_BUTTON26                    1030
+#define IDC_BUTTON27                    1031
+#define IDC_BUTTON28                    1032
+#define IDC_BUTTON29                    1033
+#define IDC_BUTTON30                    1034
+#define IDC_BUTTON31                    1035
+#define IDC_BUTTON32                    1036
+#define IDC_BUTTON33                    1037
+#define IDC_BUTTON34                    1038
+#define IDC_BUTTON35                    1039
+#define IDC_BUTTON36                    1040
+#define IDC_BUTTON41                    1041
+#define IDC_BUTTON42                    1042
+#define IDC_BUTTON43                    1043
+#define IDC_BUTTON44                    1044
+#define IDC_BUTTON45                    1045
+#define IDC_BUTTON46                    1046
+#define IDC_EDIT1                       1050
+#define IDC_EDIT2                       1051
+#define IDC_EDIT3                       1052
+#define IDC_EDIT4                       1053
+#define IDC_EDIT5                       1054
+#define IDC_EDIT6                       1055
+#define IDC_EDIT7                       1056
+#define IDC_EDIT8                       1057
+#define IDC_EDIT9                       1058
+#define IDC_EDIT10                      1059
+#define IDC_EDIT20                      1060
+#define IDC_LIST2                       1061
+#define IDC_STATIC1                     1065
+#define IDC_STATIC2                     1066
+#define IDC_STATIC3                     1067
+#define IDC_STATIC200                   1068
+#define IDC_STATIC201                   1069
+#define ID_KNETSTREAM                   32770
+#define ID_KDLGCHAN                     32770
+#define ID_KLOCALFILE                   32771
+#define ID_KDLGFILE                     32771
+#define ID_KCHANNEL                     32772
+#define ID_KMIP                         32772
+#define ID_KIPADDR                      32773
+#define ID_KIP                          32773
+#define ID_KEXIT                        32774
+#define ID_KISOITU                      32775
+#define ID_KLOOP                        32776
+#define ID_KPLAY                        32780
+#define ID_KPAUSE                       32781
+#define ID_KSTOP                        32782
+#define ID_KFORWARD                     32783
+#define ID_KBACKWARD                    32784
+#define ID_KSKIN                        32785
+#define ID_KCOLOR                       32790
+#define ID_KHALFSCREEN                  32791
+#define ID_KSCREEN                      32792
+#define ID_KDOUBLESCREEN                32793
+#define ID_KFULLSCREEN                  32794
+#define ID_KADDVOC                      32800
+#define ID_KDELVOC                      32801
+#define ID_KLEFTSOUND                   32802
+#define ID_KRIGHTSOUND                  32803
+#define ID_KSTERO                       32804
+#define ID_KABOUT                       32810
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        135
+#define _APS_NEXT_COMMAND_VALUE         32777
+#define _APS_NEXT_CONTROL_VALUE         1015
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif
