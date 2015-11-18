@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libbsanalyzer", "libbsanalyzer.vcxproj", "{7B9C500E-609F-4699-87FF-F24068960357}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "es_analysis", "cli.vcxproj", "{0A2B516A-4C4C-4102-88EE-BB3FF4C3D55B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cli", "cli.vcxproj", "{0A2B516A-4C4C-4102-88EE-BB3FF4C3D55B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "H264BSAnalyzer", "H264BSAnalyzer.vcxproj", "{61027524-3F16-47A4-8CE6-7F274000C64C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{0A2B516A-4C4C-4102-88EE-BB3FF4C3D55B}.Debug|Win32.Build.0 = Debug|Win32
 		{0A2B516A-4C4C-4102-88EE-BB3FF4C3D55B}.Release|Win32.ActiveCfg = Release|Win32
 		{0A2B516A-4C4C-4102-88EE-BB3FF4C3D55B}.Release|Win32.Build.0 = Release|Win32
+		{61027524-3F16-47A4-8CE6-7F274000C64C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{61027524-3F16-47A4-8CE6-7F274000C64C}.Debug|Win32.Build.0 = Debug|Win32
+		{61027524-3F16-47A4-8CE6-7F274000C64C}.Release|Win32.ActiveCfg = Release|Win32
+		{61027524-3F16-47A4-8CE6-7F274000C64C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
