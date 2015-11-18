@@ -19,7 +19,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-#include "stdafx.h" // for mfc
 
 #include "bs.h"
 #include "h264_stream.h"
@@ -58,7 +57,8 @@ void read_sei_end_bits(h264_stream_t* h, bs_t* b )
     read_rbsp_trailing_bits(h, b);
 }
 
-static void read_user_data_unregistered(h264_stream_t* h, bs_t* b, int payloadSize)
+// D.1 SEI payload syntax
+void read_sei_payload(h264_stream_t* h, bs_t* b, int payloadType, int payloadSize)
 {
     sei_t* s = h->sei;
 
@@ -66,38 +66,9 @@ static void read_user_data_unregistered(h264_stream_t* h, bs_t* b, int payloadSi
 
     int i;
 
-    // uuid_iso_iec_11578 todo...
-    for (i = 0; i < 16; i++)
+    for ( i = 0; i < payloadSize; i++ )
         s->payload[i] = bs_read_u(b, 8);
-    for (i = 16; i < payloadSize; i++)
-        s->payload[i] = bs_read_u(b, 8);
-}
-
-// D.1 SEI payload syntax
-// todo：不同的sei，结构体不同，需分别创建
-void read_sei_payload(h264_stream_t* h, bs_t* b, int payloadType, int payloadSize)
-{
-    sei_t* s = h->sei;
-
-    switch (payloadType)
-    {
-    case 0:
-        break;
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-    case 4:
-        break;
-    case 5:
-        read_user_data_unregistered(h, b, payloadSize);
-        break;
-    default:
-        break;
-    }
-
+        
     read_sei_end_bits(h, b);
 }
 

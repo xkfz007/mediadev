@@ -11,32 +11,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\DLL_Export.def" />
+    <ClInclude Include="..\bs.h" />
+    <ClInclude Include="..\h264_avcc.h" />
+    <ClInclude Include="..\h264_sei.h" />
+    <ClInclude Include="..\h264_stream.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\errorHandle.cpp" />
-    <ClCompile Include="..\h264analysis.cpp" />
-    <ClCompile Include="..\h264decoder.cpp" />
-    <ClCompile Include="..\mpeg2analysis.cpp" />
-    <ClCompile Include="..\mpeg2decoder.cpp" />
-    <ClCompile Include="..\vlc.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\errorHandle.h" />
-    <ClInclude Include="..\es_defines.h" />
-    <ClInclude Include="..\h264analysis.h" />
-    <ClInclude Include="..\h264decoder.h" />
-    <ClInclude Include="..\h264typedefs.h" />
-    <ClInclude Include="..\mpeg2analysis.h" />
-    <ClInclude Include="..\mpeg2decoder.h" />
-    <ClInclude Include="..\mpeg2typedefs.h" />
-    <ClInclude Include="..\vlc.h" />
+    <ClCompile Include="..\h264_avcc.cpp" />
+    <ClCompile Include="..\h264_sei.cpp" />
+    <ClCompile Include="..\h264_stream.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B9C500E-609F-4699-87FF-F24068960357}</ProjectGuid>
     <RootNamespace>dct</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>es_analysis</ProjectName>
+    <ProjectName>libbsanalyzer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
