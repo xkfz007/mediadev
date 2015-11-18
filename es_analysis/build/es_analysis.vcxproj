@@ -10,6 +10,28 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\DLL_Export.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\errorHandle.cpp" />
+    <ClCompile Include="..\h264analysis.cpp" />
+    <ClCompile Include="..\h264decoder.cpp" />
+    <ClCompile Include="..\mpeg2analysis.cpp" />
+    <ClCompile Include="..\mpeg2decoder.cpp" />
+    <ClCompile Include="..\vlc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\errorHandle.h" />
+    <ClInclude Include="..\es_defines.h" />
+    <ClInclude Include="..\h264analysis.h" />
+    <ClInclude Include="..\h264decoder.h" />
+    <ClInclude Include="..\h264typedefs.h" />
+    <ClInclude Include="..\mpeg2analysis.h" />
+    <ClInclude Include="..\mpeg2decoder.h" />
+    <ClInclude Include="..\mpeg2typedefs.h" />
+    <ClInclude Include="..\vlc.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B9C500E-609F-4699-87FF-F24068960357}</ProjectGuid>
     <RootNamespace>dct</RootNamespace>
