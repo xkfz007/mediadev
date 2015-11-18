@@ -17,9 +17,10 @@
     <ClInclude Include="..\h264_stream.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\h264_avcc.cpp" />
-    <ClCompile Include="..\h264_sei.cpp" />
-    <ClCompile Include="..\h264_stream.cpp" />
+    <ClCompile Include="..\h264_analyze.c" />
+    <ClCompile Include="..\h264_avcc.c" />
+    <ClCompile Include="..\h264_sei.c" />
+    <ClCompile Include="..\h264_stream.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7B9C500E-609F-4699-87FF-F24068960357}</ProjectGuid>
