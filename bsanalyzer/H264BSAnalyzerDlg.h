@@ -4,11 +4,11 @@
 #include "resource.h"
 #include "stdafx.h"
 
-#include "NalParse.h"
+//#include "NalParse.h"
 #include "hexeditctrl.h"
 
-#include <vector>
-using std::vector;
+//#include <vector>
+//using std::vector;
 
 #pragma once
 
@@ -32,8 +32,9 @@ public:
     // our own...
 public:
     void SystemClear();
-
+#if 0
     int ShowNLInfo(NALU_t* nalu);
+#endif
 // Implementation
 protected:
     HICON m_hIcon;
@@ -54,8 +55,10 @@ public:
 private:
     int m_nSliceIndex;
     CString m_strFileUrl;
+#if 0
     CNalParser m_cParser;
     vector<NALU_t> m_vNalTypeVector;
+#endif
     int m_nValTotalNum; // m_vNalTypeVector有多少个NALU_t
 
     HANDLE m_hFileThread;

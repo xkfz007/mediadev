@@ -7,7 +7,7 @@
 #include "H264BSAnalyzerDlg.h"
 #include "afxdialogex.h"
 
-#include "NaLParse.h"
+//#include "NaLParse.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -246,6 +246,7 @@ HCURSOR CH264BSAnalyzerDlg::OnQueryDragIcon()
 }
 
 
+#if 0
 //添加一条记录
 int CH264BSAnalyzerDlg::ShowNLInfo(NALU_t* nalu)
 {
@@ -463,11 +464,14 @@ int CH264BSAnalyzerDlg::ShowNLInfo(NALU_t* nalu)
 
     return TRUE;
 }
+#endif
 
 void CH264BSAnalyzerDlg::SystemClear()
 {
     //m_vNalInfoVector.clear();
+#if 0
     m_vNalTypeVector.clear();
+#endif
     m_h264NalList.DeleteAllItems();
     m_nSliceIndex = 0;
     m_nValTotalNum = 0;
@@ -505,6 +509,7 @@ UINT CH264BSAnalyzerDlg::ThreadFuncReadFile(LPVOID* lpvoid)
 
 void CH264BSAnalyzerDlg::ReadFile(void)
 {
+#if 0
     CString strFilePath;
     CString strSimpleInfo;
     CString strProfileInfo;
@@ -708,6 +713,7 @@ void CH264BSAnalyzerDlg::ReadFile(void)
             );
         GetDlgItem(IDC_EDIT_SIMINFO)->SetWindowText(strSimpleInfo);
     }
+#endif
 }
 
 UINT CH264BSAnalyzerDlg::ThreadFuncPaseNal(LPVOID* lpvoid)
@@ -735,6 +741,7 @@ void CH264BSAnalyzerDlg::PaseNal(void)
 // 双击(单击)某一项，进行NAL详细分析
 void CH264BSAnalyzerDlg::OnLvnItemActivateH264Nallist(NMHDR *pNMHDR, LRESULT *pResult)
 {
+#if 0
     LPNMITEMACTIVATE pNMIA = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
     // TODO: Add your control notification handler code here
     //----------------------
@@ -762,11 +769,13 @@ void CH264BSAnalyzerDlg::OnLvnItemActivateH264Nallist(NMHDR *pNMHDR, LRESULT *pR
 #endif
 
     *pResult = 0;
+#endif
 }
 
 
 void CH264BSAnalyzerDlg::OnLvnKeydownH264Nallist(NMHDR *pNMHDR, LRESULT *pResult)
 {
+#if 0
     LPNMLVKEYDOWN pLVKeyDown = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
     // TODO: 在此添加控件通知处理程序代码
     POSITION ps;
@@ -832,6 +841,7 @@ void CH264BSAnalyzerDlg::OnLvnKeydownH264Nallist(NMHDR *pNMHDR, LRESULT *pResult
 #endif
 
     *pResult = 0;
+#endif
 }
 
 void CH264BSAnalyzerDlg::OnNMCustomdrawH264Nallist(NMHDR *pNMHDR, LRESULT *pResult)
@@ -920,6 +930,7 @@ void CH264BSAnalyzerDlg::OnNMCustomdrawH264Nallist(NMHDR *pNMHDR, LRESULT *pResu
 // 主界面需要设置Accept Files为TRUE
 void CH264BSAnalyzerDlg::OnDropFiles(HDROP hDropInfo)
 {
+#if 0
     CDialogEx::OnDropFiles(hDropInfo);
 
     char* pFilePathName =(char *)malloc(MAX_URL_LENGTH);
@@ -939,10 +950,12 @@ void CH264BSAnalyzerDlg::OnDropFiles(HDROP hDropInfo)
     m_cParser.init(m_strFileUrl.GetBuffer(), &m_cTree);
     
     OnBnClickedH264InputurlOpen();
+#endif
 }
 
 void CH264BSAnalyzerDlg::OnFileOpen()
 {
+#if 0
     CString strFilePath;
     char szFilter[] = "H.264 or H.265 Files(*.h264;*.264;*.h265;*.265)|*.h264;*.264;*.h265;*.265|All Files(*.*)|*.*||";
     CFileDialog fileDlg(TRUE, "H.264", NULL, OFN_HIDEREADONLY | OFN_NOCHANGEDIR | OFN_FILEMUSTEXIST, szFilter);
@@ -965,6 +978,7 @@ void CH264BSAnalyzerDlg::OnFileOpen()
     m_cParser.init(m_strFileUrl.GetBuffer(), &m_cTree);
 
     OnBnClickedH264InputurlOpen();
+#endif
 }
 
 void CH264BSAnalyzerDlg::OnHelpAbout()
