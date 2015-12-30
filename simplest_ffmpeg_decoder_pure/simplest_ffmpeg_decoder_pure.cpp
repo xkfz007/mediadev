@@ -46,7 +46,7 @@ extern "C"
 
 //test different codec
 #define TEST_H264  0
-#define TEST_HEVC  0
+#define TEST_HEVC  1
 
 int nearest_frame_window[100]={0};
 int win_end=0;
@@ -66,9 +66,9 @@ static int get_frame_win_bits(int win_sz) {
 }
 FILE* pf;
 
-static void calc_bitrate(int bits,int i_fps){
+static void calc_bitrate(int size,int i_fps){
     //calculate bitrate of the nearest 1 second
-    nearest_frame_window[win_end % i_fps] = bits;
+    nearest_frame_window[win_end % i_fps] = size;
     win_end = (win_end + 1) % i_fps;
     i_frame_done++;
     int fwin_bits = get_frame_win_bits(i_fps);
@@ -78,12 +78,13 @@ static void calc_bitrate(int bits,int i_fps){
     else
         curr_bitrate_1sec = fwin_bits * 0.001;
 
-    i_total_bits+=bits;
+    i_total_bits+=size;
     double curr_bitrate=
         i_total_bits*0.001/i_frame_done*i_fps;
 
-    fprintf(pf,"%d: bitrate of 1 second=%.2f gobal bitrate=%.2f\n",
-        i_frame_done,curr_bitrate_1sec,curr_bitrate);
+    fprintf(pf,"%d: packet size=%d[%d] bitrate of 1 second=%.2f gobal bitrate=%.2f\n",
+        i_frame_done, size,size*8,
+        curr_bitrate_1sec,curr_bitrate);
 
 }
 
@@ -104,17 +105,18 @@ int main(int argc, char* argv[])
 	int cur_size;
 
     AVPacket packet;
+    AVPacket packet2;
 	int ret, got_picture;
 	
 	int y_size;
 
 #if TEST_HEVC
 	enum AVCodecID codec_id=AV_CODEC_ID_HEVC;
-	char filepath_in[]="bigbuckbunny_480x272.hevc";
+	char filepath_in[]="a2.hevc";//"bigbuckbunny_480x272.hevc";
 #elif TEST_H264
 	AVCodecID codec_id=AV_CODEC_ID_H264;
-//char filepath_in[]="bigbuckbunny_480x272.h264";
-    char filepath_in[]="d:/test/pom.flv";
+    char filepath_in[]="bigbuckbunny_480x272.h264";
+   // char filepath_in[]="d:/test/pom.flv";
 #else
 	AVCodecID codec_id=AV_CODEC_ID_MPEG2VIDEO;
 	char filepath_in[]="bigbuckbunny_480x272.m2v";
@@ -169,6 +171,7 @@ int main(int argc, char* argv[])
 
     pFrame = av_frame_alloc();
 	av_init_packet(&packet);
+	av_init_packet(&packet2);
 
     int i_fps=25;
     int i_frame_done=0;
@@ -183,10 +186,7 @@ int main(int argc, char* argv[])
 
         while (cur_size>0){
 
-			int len = av_parser_parse2(
-				pCodecParserCtx, pCodecCtx,
-				&packet.data, &packet.size,
-				cur_ptr , cur_size ,
+			int len = av_parser_parse2( pCodecParserCtx, pCodecCtx, &packet.data, &packet.size, cur_ptr , cur_size ,
 				AV_NOPTS_VALUE, AV_NOPTS_VALUE, AV_NOPTS_VALUE);
 
 			cur_ptr += len;
@@ -196,15 +196,15 @@ int main(int argc, char* argv[])
 				continue;
 
 			//Some Info from AVCodecParserContext
-			printf("Packet Size:%6d\t",packet.size);
+			fprintf(pf,"Packet Size:%6d\t",packet.size);
 			switch(pCodecParserCtx->pict_type){
 				case AV_PICTURE_TYPE_I: printf("Type: I\t");break;
 				case AV_PICTURE_TYPE_P: printf("Type: P\t");break;
 				case AV_PICTURE_TYPE_B: printf("Type: B\t");break;
 				default: printf("Type: Other\t");break;
 			}
-			printf("Output Number:%4d\t",pCodecParserCtx->output_picture_number);
-			printf("Offset:%lld\n",pCodecParserCtx->cur_offset);
+			fprintf(pf,"Output Number:%4d\t",pCodecParserCtx->output_picture_number);
+			fprintf(pf,"Offset:%lld\n",pCodecParserCtx->cur_offset);
 
 			ret = avcodec_decode_video2(pCodecCtx, pFrame, &got_picture, &packet);
 			if (ret < 0) {
@@ -213,8 +213,8 @@ int main(int argc, char* argv[])
 			}
 			if (got_picture) {
 				if(first_time){
-					printf("\nCodec Full Name:%s\n",pCodecCtx->codec->long_name);
-					printf("width:%d\nheight:%d\n\n",pCodecCtx->width,pCodecCtx->height);
+					fprintf(pf,"\nCodec Full Name:%s\n",pCodecCtx->codec->long_name);
+					fprintf(pf,"width:%d\nheight:%d\n\n",pCodecCtx->width,pCodecCtx->height);
 					//SwsContext
 					img_convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height, pCodecCtx->pix_fmt, 
 						pCodecCtx->width, pCodecCtx->height, PIX_FMT_YUV420P, SWS_BICUBIC, NULL, NULL, NULL); 
@@ -235,14 +235,22 @@ int main(int argc, char* argv[])
 				fwrite(pFrameYUV->data[0],1,y_size,fp_out);     //Y 
 				fwrite(pFrameYUV->data[1],1,y_size/4,fp_out);   //U
 				fwrite(pFrameYUV->data[2],1,y_size/4,fp_out);   //V
+                fprintf(pf,"FRAME:coded_picture_number=%d display_picture_number=%d\n",pFrame->coded_picture_number,pFrame->display_picture_number);
+                fprintf(pf,"\twidth=%d height=%d key_frame=%d pict_type=%c\n",pFrame->width,pFrame->height,pFrame->key_frame,av_get_picture_type_char(pFrame->pict_type));
+                fprintf(pf,"\tframe_size=%d packet_size=%d\n",pFrame->pkt_size,packet.size);
+
+                fprintf(pf,"CodecCtx:frame_number=%d\n",pCodecCtx->frame_number);
+                fprintf(pf,"\twidth=%d height=%d\n",pCodecCtx->width,pCodecCtx->height);
+                fprintf(pf,"\tbit_rate=%d\n",pCodecCtx->bit_rate);
+
+                calc_bitrate(packet.size,i_fps);
+                fprintf(pf,"\n\n");
+
 			}
 
-            calc_bitrate(packet.size,i_fps);
 
 
 		}
-        if(i_frame_done>100)
-            break;
 
     }
 
@@ -265,8 +273,17 @@ int main(int argc, char* argv[])
 			fwrite(pFrameYUV->data[0],1,y_size,fp_out);     //Y
 			fwrite(pFrameYUV->data[1],1,y_size/4,fp_out);   //U
 			fwrite(pFrameYUV->data[2],1,y_size/4,fp_out);   //V
+
+            fprintf(pf,"FRAME:coded_picture_number=%d display_picture_number=%d\n",pFrame->coded_picture_number,pFrame->display_picture_number);
+            fprintf(pf,"\twidth=%d height=%d key_frame=%d pict_type=%d\n",pFrame->width,pFrame->height,pFrame->key_frame,pFrame->pict_type);
+            fprintf(pf,"\tframe_size=%d packet_size=%d\n",pFrame->pkt_size,packet.size);
+
+            fprintf(pf,"CodecCtx:frame_number=%d\n",pCodecCtx->frame_number);
+            fprintf(pf,"\twidth=%d height=%d\n",pCodecCtx->width,pCodecCtx->height);
+            fprintf(pf,"\tbit_rate=%d\n",pCodecCtx->bit_rate);
+            calc_bitrate(packet.size,i_fps);
+            fprintf(pf,"\n\n");
 		}
-        calc_bitrate(packet.size,i_fps);
 	}
 
     fclose(fp_in);
