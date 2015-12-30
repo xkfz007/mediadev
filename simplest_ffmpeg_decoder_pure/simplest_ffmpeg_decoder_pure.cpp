@@ -48,6 +48,45 @@ extern "C"
 #define TEST_H264  0
 #define TEST_HEVC  0
 
+int nearest_frame_window[100]={0};
+int win_end=0;
+int i_total_bits=0;
+int i_frame_done=0;
+
+static int get_frame_win_bits(int win_sz) {
+  int tmp_bits = 0;
+  int j = win_end;
+  for(int i = 0; i < win_sz; i++) {
+    j--;
+    if(j < 0)
+      j += win_sz;
+    tmp_bits += nearest_frame_window[j];
+  }
+  return tmp_bits;
+}
+FILE* pf;
+
+static void calc_bitrate(int bits,int i_fps){
+    //calculate bitrate of the nearest 1 second
+    nearest_frame_window[win_end % i_fps] = bits;
+    win_end = (win_end + 1) % i_fps;
+    i_frame_done++;
+    int fwin_bits = get_frame_win_bits(i_fps);
+    double curr_bitrate_1sec;
+    if(i_frame_done<i_fps)
+        curr_bitrate_1sec = fwin_bits * 0.001/i_frame_done*i_fps;
+    else
+        curr_bitrate_1sec = fwin_bits * 0.001;
+
+    i_total_bits+=bits;
+    double curr_bitrate=
+        i_total_bits*0.001/i_frame_done*i_fps;
+
+    fprintf(pf,"%d: bitrate of 1 second=%.2f gobal bitrate=%.2f\n",
+        i_frame_done,curr_bitrate_1sec,curr_bitrate);
+
+}
+
 int main(int argc, char* argv[])
 {
 	AVCodec *pCodec;
@@ -74,7 +113,8 @@ int main(int argc, char* argv[])
 	char filepath_in[]="bigbuckbunny_480x272.hevc";
 #elif TEST_H264
 	AVCodecID codec_id=AV_CODEC_ID_H264;
-	char filepath_in[]="bigbuckbunny_480x272.h264";
+//char filepath_in[]="bigbuckbunny_480x272.h264";
+    char filepath_in[]="d:/test/pom.flv";
 #else
 	AVCodecID codec_id=AV_CODEC_ID_MPEG2VIDEO;
 	char filepath_in[]="bigbuckbunny_480x272.m2v";
@@ -83,6 +123,7 @@ int main(int argc, char* argv[])
 	char filepath_out[]="bigbuckbunny_480x272.yuv";
 	int first_time=1;
 
+    pf=fopen("a.txt","w");
 	struct SwsContext *img_convert_ctx;
 
 	//av_log_set_level(AV_LOG_DEBUG);
@@ -128,6 +169,10 @@ int main(int argc, char* argv[])
 
     pFrame = av_frame_alloc();
 	av_init_packet(&packet);
+
+    int i_fps=25;
+    int i_frame_done=0;
+    int i_total_bits=0;
 
 
 	while (1) {
@@ -191,7 +236,13 @@ int main(int argc, char* argv[])
 				fwrite(pFrameYUV->data[1],1,y_size/4,fp_out);   //U
 				fwrite(pFrameYUV->data[2],1,y_size/4,fp_out);   //V
 			}
+
+            calc_bitrate(packet.size,i_fps);
+
+
 		}
+        if(i_frame_done>100)
+            break;
 
     }
 
@@ -215,10 +266,12 @@ int main(int argc, char* argv[])
 			fwrite(pFrameYUV->data[1],1,y_size/4,fp_out);   //U
 			fwrite(pFrameYUV->data[2],1,y_size/4,fp_out);   //V
 		}
+        calc_bitrate(packet.size,i_fps);
 	}
 
     fclose(fp_in);
 	fclose(fp_out);
+    fclose(pf);
     
 	sws_freeContext(img_convert_ctx);
 	av_parser_close(pCodecParserCtx);
