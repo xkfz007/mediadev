@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimplePlayer", "SimplePlayer.vcxproj", "{49B34B74-B02C-3193-6CAB-D80C9CCCBDD4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimplePlayer", "SimplePlayer.vcxproj", "{10488D75-5F6D-F525-2269-041CC7BF5551}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{49B34B74-B02C-3193-6CAB-D80C9CCCBDD4}.Debug|Win32.ActiveCfg = Debug|Win32
-		{49B34B74-B02C-3193-6CAB-D80C9CCCBDD4}.Debug|Win32.Build.0 = Debug|Win32
-		{49B34B74-B02C-3193-6CAB-D80C9CCCBDD4}.Release|Win32.ActiveCfg = Release|Win32
-		{49B34B74-B02C-3193-6CAB-D80C9CCCBDD4}.Release|Win32.Build.0 = Release|Win32
+		{10488D75-5F6D-F525-2269-041CC7BF5551}.Debug|Win32.ActiveCfg = Debug|Win32
+		{10488D75-5F6D-F525-2269-041CC7BF5551}.Debug|Win32.Build.0 = Debug|Win32
+		{10488D75-5F6D-F525-2269-041CC7BF5551}.Release|Win32.ActiveCfg = Release|Win32
+		{10488D75-5F6D-F525-2269-041CC7BF5551}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
