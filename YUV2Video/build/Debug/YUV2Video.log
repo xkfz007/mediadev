@@ -1,2 +1,0 @@
-﻿  YUV2Video.cpp
-d:\workspace2\mediadev\trunk\yuv2video\include\libavutil\common.h(34): fatal error C1083: Cannot open include file: 'inttypes.h': No such file or directory
